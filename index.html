@@ -77,8 +77,8 @@
   <title>PAPER_TITLE - AUTHOR_NAMES | Academic Research</title>
   
   <!-- Favicon and App Icons -->
-  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
-  <link rel="apple-touch-icon" href="static/images/favicon.ico">
+  <link rel="icon" type="image/x-icon" href="static/images/learnsyslab_logo.ico">
+  <link rel="apple-touch-icon" href="static/images/learnsyslab_logo.ico">
   
   <!-- Critical CSS - Load synchronously -->
   <link rel="stylesheet" href="static/css/bulma.min.css">
@@ -170,7 +170,7 @@
     "@type": "Organization",
     "name": "INSTITUTION_OR_LAB_NAME",
     "url": "https://YOUR_INSTITUTION_WEBSITE.com",
-    "logo": "https://YOUR_DOMAIN.com/static/images/favicon.ico",
+    "logo": "https://YOUR_DOMAIN.com/static/images/learnsyslab_logo.ico",
     "sameAs": [
       "https://twitter.com/YOUR_TWITTER_HANDLE",
       "https://github.com/YOUR_GITHUB_USERNAME"
@@ -241,7 +241,7 @@
         <div class="columns is-centered">
           <div class="column has-text-centered">
             <!-- TODO: Replace with your paper title -->
-            <h1 class="title is-1 publication-title">Academic Project Page</h1>
+            <h1 class="title is-1 publication-title">Failure Prediction at Runtime without Failure Data for Generative Robot Policies</h1>
             <div class="is-size-5 publication-authors">
               <!-- TODO: Replace with your paper authors and their personal links -->
               <span class="author-block">
@@ -255,7 +255,7 @@
 
                   <div class="is-size-5 publication-authors">
                     <!-- TODO: Replace with your institution and conference/journal info -->
-                    <span class="author-block">Institution Name<br>Conference name and year</span>
+                    <span class="author-block">Institution Name<br>NeurIPS 2025</span>
                     <!-- TODO: Remove this line if no equal contribution -->
                     <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution</small></span>
                   </div>
@@ -313,24 +313,20 @@
   </div>
 </section>
 
-
-<!-- Teaser video-->
+<!-- Teaser image-->
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
-      <!-- TODO: Replace with your teaser video -->
-      <video poster="" id="tree" autoplay controls muted loop height="100%" preload="metadata">
-        <!-- TODO: Add your video file path here -->
-        <source src="static/videos/banner_video.mp4" type="video/mp4">
-      </video>
-      <!-- TODO: Replace with your video description -->
-      <h2 class="subtitle has-text-centered">
-        Aliquam vitae elit ullamcorper tellus egestas pellentesque. Ut lacus tellus, maximus vel lectus at, placerat pretium mi. Maecenas dignissim tincidunt vestibulum. Sed consequat hendrerit nisl ut maximus. 
-      </h2>
+      <!-- TODO: Replace with your teaser image -->
+      <img src="static/images/shield.pdf" alt="Teaser image" style="width:100%; height:auto;" loading="eager">
+      <!-- TODO: Replace with your image description -->
+      <!-- <h2 class="subtitle has-text-centered">
+        Text
+      </h2> -->
     </div>
   </div>
 </section>
-<!-- End teaser video -->
+<!-- End teaser image -->
 
 <!-- Paper abstract -->
 <section class="section hero is-light">
@@ -341,7 +337,7 @@
         <div class="content has-text-justified">
           <!-- TODO: Replace with your paper abstract -->
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ullamcorper tellus sed ante aliquam tempus. Etiam porttitor urna feugiat nibh elementum, et tempor dolor mattis. Donec accumsan enim augue, a vulputate nisi sodales sit amet. Proin bibendum ex eget mauris cursus euismod nec et nibh. Maecenas ac gravida ante, nec cursus dui. Vivamus purus nibh, placerat ac purus eget, sagittis vestibulum metus. Sed vestibulum bibendum lectus gravida commodo. Pellentesque auctor leo vitae sagittis suscipit.
+            Recent advances in imitation learning (IL) with generative models, such as diffusion and flow matching, have significantly improved the capabilities of robots to perform complex, long-horizon tasks. However, distribution shifts from unseen environments or compounding action errors can still cause unpredictable and unsafe behavior, leading to task failure. Therefore, being able to predict failures of generative IL policies as early as possible during runtime is crucial for deploying robots in human-centered and safety-critical environments. The two main existing approaches for recognizing failures both have major drawbacks. Methods relying solely on out-of-distribution (OOD) detection are prone to raising false alarms as policies might generalize. Conversely, external monitoring of the robot’s interactions with its environment provides no foresight about future behavior, meaning that failures can only be detected late or in retrospect. To close the existing gap, we propose FIPER, a framework for Failure Prediction at Runtime for generative IL policies without relying on failure examples. FIPER identifies two key indicators of policy failures: 1) consecutive OOD observations and 2) persistently high uncertainty (entropy) in generated actions. We calibrate both observation- and action-based failure prediction scores on a few successful rollouts and use conformal prediction to provide statistical performance guarantees. We evaluate our framework in five simulation and real-world environments where various types of failures can occur. Our results show that FIPER better distinguishes true failures from OOD situations and predicts failures earlier and more accurately than existing methods. We thus consider FIPER an important step towards more interpretable and safer generative robot policies.
           </p>
         </div>
       </div>
