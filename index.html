@@ -199,7 +199,7 @@
             <!-- TODO: Replace with your paper venue and year -->
             <div class="is-flex is-justify-content-center is-align-items-center" style="margin-bottom: 1em;">
               <img src="static/images/NeurIPS-logo.svg" alt="NeurIPS Logo" style="height:5em; margin-right:0.5em;">
-              <span class="is-size-4 has-text-weight-bold" style="vertical-align:middle;">NeurIPS 2025</span>
+              <span class="is-size-4 has-text-weight-bold" style="vertical-align:middle; color:#68448B;">NeurIPS 2025</span>
             </div>
 
             <div class="is-size-5 publication-authors">
@@ -324,20 +324,20 @@
         <div class="content has-text-justified">
           <!-- Text -->
           <p>
-            Recent advances in generative imitation learning (IL) have enabled robots to solve increasingly complex tasks. However, safe deployment remains challenging:
+            Recent advances in generative imitation learning (IL) robot policies have enabled robots to solve increasingly complex tasks. However, safe deployment remains challenging:
             <ul>
               <li>Unpredictable failures can arise from distribution shifts or compounding errors.</li>
               <li>Existing methods either:
                 <ul>
-                  <li>flag any OOD observation/action (high false alarms), or</li>
-                  <li>use VLMs to retroactively detect failure (too late), or</li>
-                  <li>rely on fail-mode labels (often unsafe/impractical to collect), or</li>
-                  <li>use inputs only or outputs only, missing crucial cues, or</li>
-                  <li>fail to account for the multi-modal action capabilities of generative policies (see image below).</li>
+                  <li>Flag any OOD observation/action (<strong>high false alarms</strong>)</li>
+                  <li>Use VLMs to retroactively detect failure (<strong>too late</strong>)</li>
+                  <li>Rely on existing failure data (often unsafe/impractical to collect)</li>
+                  <li>Use policy inputs only or outputs only, missing crucial cues</li>
+                  <li>Fail to account for the multi-modal action capabilities of generative policies</li>
                 </ul>
               </li>
             </ul>
-            We address these challenges with <strong>FIPER</strong>, a framework for failure prediction at runtime that provides early and accurate interpretable warnings without requiring failure examples.
+            We address these challenges with <strong>FIPER</strong>, a framework for failure prediction at runtime that provides early and accurate warnings without requiring failure examples.
           </p>
         </div>
         <div class="columns is-centered is-vcentered" style="align-items: flex-start; margin-top: 4em;">
@@ -389,10 +389,10 @@
           <p>
             FIPER predicts policy failures during runtime by combining two complementary indicators:
             <ul>
-              <li><strong>Observation-based score (RND-OE):</strong> Random Network Distillation applied in the policy’s own observation embedding space detects when current observations deviate from those seen in successful rollouts.</li>
-              <li><strong>Action uncertainty (ACE):</strong> Batched policy samples are evaluated via a lightweight entropy measure in end-effector space, capturing persistent ambiguity in the robot’s intended behavior.</li>
+              <li><strong>Observation-Based Score (RND-OE):</strong> Random Network Distillation applied in the policy’s own observation embedding space detects when current observations deviate from those seen in successful rollouts. Applying RND to the observation embeddings instead of raw observations improves robustness to irrelevant distribution shifts.</li>
+              <li><strong>Action Chunk Entropy (ACE):</strong> Batched action sequences are evaluated via a novel entropy score in end-effector space, capturing persistent ambiguity in the robot’s intended behavior. Our proposed score is both computationally lightweight and effective at handling multi-modal action distributions.</li>
             </ul>
-            Both signals are aggregated over short moving windows and calibrated with conformal prediction using only successful trajectories. A failure is flagged only when both indicators exceed their individual thresholds, yielding early and robust prediction while avoiding false alarms on benign out-of-distribution states.
+            Both scores are aggregated over short <strong>moving windows</strong> and calibrated with <strong>conformal prediction</strong> using only a small number of successful trajectories. A failure is flagged only when both indicators exceed their individual thresholds, yielding early and robust prediction while avoiding false alarms on benign out-of-distribution states.
           </p>
         </div>
       </div>
@@ -432,7 +432,7 @@
             <li>FIPER predicts failures of generative robot policies at runtime <strong>without requiring failure data</strong>.</li>
             <li>Combines observation-based and action-based indicators for <strong>fast and robust</strong> failure prediction.</li>
             <li>Uses <strong>conformal prediction</strong> to provide statistical guarantees on prediction performance.</li>
-            <li>Calibrated using <strong>only successful rollouts</strong>, enabling deployment without access to policy training data.</li>
+            <li>Calibrated using <strong>only a small number of successful rollouts</strong>, enabling deployment without access to policy training data.</li>
             <li>Outperforms existing methods in distinguishing <strong>true failures from out-of-distribution situations</strong>.</li>
           </ul>
         </div>
